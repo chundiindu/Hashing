@@ -1,0 +1,21 @@
+
+class Geeks {
+    // Complete this function
+    // Function to check if there is a pair with the given sum in the array.
+    public static int sumExists(int arr[], int N, int sum) {
+        HashSet<Integer> h = new HashSet<Integer>();
+        for(int x: arr)
+        {
+            if(h.contains(sum-x))
+            {
+                return 1;
+            }
+            else
+            {
+                h.add(x);
+            }
+            
+        }
+        return 0;
+    }
+}
