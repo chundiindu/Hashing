@@ -1,0 +1,39 @@
+Given an array A of size N. The elements of the array consists of positive integers. You have to find the largest element with minimum frequency.
+
+Input Format: First line of input contains number of testcases T. For each testcase there will be two lines. First line contains N, next line contains N elements separated by spaces.
+
+Output Format: For each testcase, print the largest element with minimum frequency.
+
+User Task:
+Your task is to complete the provided function LargButMinFreq(A, n) which accepts array A and n. Hence you have to return the largest element with minimum frequency.
+
+class Geeks
+{
+    // Function to find largest number with minimum frequency
+    public static int LargButMinFreq(int arr[], int n)
+    {
+        // Your code here
+        int temp=Integer.MAX_VALUE,val=0;
+        HashMap<Integer,Integer> mp=new HashMap<>();
+        
+        for(int i=0;i<n;i=i+1){
+            if(!mp.containsKey(arr[i])){
+                mp.put(arr[i],1);
+            }
+            else{
+                mp.put(arr[i],mp.get(arr[i])+1);
+            }
+        }
+        
+        for(Map.Entry<Integer, Integer> entry : mp.entrySet()){
+            if(temp>=entry.getValue() && val<entry.getKey()){
+                val=entry.getKey();
+                temp=entry.getValue();
+            }
+        }
+        
+        
+        return val;
+        
+    }
+}
